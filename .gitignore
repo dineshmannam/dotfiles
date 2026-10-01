@@ -1,0 +1,10 @@
+.DS_Store
+
+# zsh runtime files that may land in ~/.config/zsh
+.zsh_history*
+.zsh_sessions/
+.zcompdump*
+
+# Machine-specific, never committed
+local.zsh
+*.local
