@@ -11,6 +11,7 @@ brew "stow"
 brew "zoxide"
 brew "fd"
 brew "direnv"
+brew "fzf"
 
 # Window management and terminal
 cask "nikitabobko/tap/aerospace"
