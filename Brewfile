@@ -10,6 +10,7 @@ tap "adamrodger/tap"
 brew "stow"
 brew "zoxide"
 brew "fd"
+brew "direnv"
 
 # Window management and terminal
 cask "nikitabobko/tap/aerospace"

@@ -1,3 +1,7 @@
+# direnv: load the current folder's .envrc before the instant prompt so its
+# messages do not trip the p10k console-output warning (hook is in conf.d/direnv.zsh).
+(( ${+commands[direnv]} )) && emulate zsh -c "$(direnv export zsh)"
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of this file.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
