@@ -72,6 +72,42 @@
       "skillFolderHash": "71718940c99062bf0d8d768c57e1c8ffca8936c4",
       "installedAt": "2026-10-08T18:47:26.309Z",
       "updatedAt": "2026-10-08T18:47:26.309Z"
+    },
+    "cloud-logging-query-generation": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google/skills.git",
+      "skillPath": "skills/cloud/cloud-logging-query-generation/SKILL.md",
+      "skillFolderHash": "ed492897f650a580dc3c1736a1e50d3aa6f39133",
+      "installedAt": "2026-10-09T14:09:40.840Z",
+      "updatedAt": "2026-10-09T14:09:40.840Z"
+    },
+    "cloud-run-alert-configuration": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google/skills.git",
+      "skillPath": "skills/cloud/cloud-run-alert-configuration/SKILL.md",
+      "skillFolderHash": "a0a6d1d9b951e4cf5471070fc7ec46a1fa414fff",
+      "installedAt": "2026-10-09T14:09:40.841Z",
+      "updatedAt": "2026-10-09T14:09:40.841Z"
+    },
+    "gcloud": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google/skills.git",
+      "skillPath": "skills/cloud/gcloud/SKILL.md",
+      "skillFolderHash": "e79ad07a482cd3a10e63d1225b6166a8a5a674ca",
+      "installedAt": "2026-10-09T14:09:40.842Z",
+      "updatedAt": "2026-10-09T14:09:40.842Z"
+    },
+    "retrieving-developer-knowledge": {
+      "source": "google/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/google/skills.git",
+      "skillPath": "skills/developers/retrieving-developer-knowledge/SKILL.md",
+      "skillFolderHash": "879976248c19a326c75b556d4ec79b6e6db925e2",
+      "installedAt": "2026-10-09T14:09:40.842Z",
+      "updatedAt": "2026-10-09T14:09:40.842Z"
     }
   },
   "dismissed": {
