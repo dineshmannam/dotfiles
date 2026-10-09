@@ -34,4 +34,5 @@ cask "docker-desktop"
 brew "python@3.12"
 brew "uv"
 brew "node"
+brew "fnm"  # per-folder Node versions from .nvmrc
 brew "sf"
