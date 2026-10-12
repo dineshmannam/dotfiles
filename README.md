@@ -47,6 +47,11 @@ Each top-level folder is a stow package that mirrors `$HOME`.
 ## Day to day
 
 - New tool adopted: add one line to `Brewfile`.
-- New agent skill installed with `npx skills add`: it lands in this repo through the symlink. Run `git status`, commit it, and link it into Claude (step 5, or tick Claude Code in the installer).
+- Before installing an agent skill, ask "every session, or just this project?".
+  Global skills load everywhere, including in agent tools that have their own rules for planning, testing and shipping, so keep this package small.
+  A skill for some repos goes in that project's `.claude/skills/`, or in a plugin installed at project or local scope (`/plugin install`).
+  Bundles with opinions on how to plan, test or ship are project-level by default.
+  When unsure, start at project level and promote a skill here only once it has earned it.
+- New global agent skill installed with `npx skills add`: it lands in this repo through the symlink. Run `git status`, commit it, and link it into Claude (step 5, or tick Claude Code in the installer).
 - If `ls -la ~/.agents` shows `.skill-lock.json` without an arrow, a tool replaced the symlink: move the file back into `agents/.agents/` and re-run `stow agents`.
 - Commits here use the personal email (set repo-locally).
