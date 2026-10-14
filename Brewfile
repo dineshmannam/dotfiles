@@ -12,6 +12,8 @@ brew "zoxide"
 brew "fd"
 brew "direnv"
 brew "fzf"
+brew "ripgrep"  # content search; LazyVim <space>/ needs it
+brew "bat"  # syntax-highlighted previews
 
 # Window management and terminal
 cask "nikitabobko/tap/aerospace"
@@ -20,6 +22,8 @@ cask "wezterm"
 
 # Editor
 brew "neovim"
+brew "tree-sitter-cli"  # LazyVim installs language parsers with it
+brew "lazygit"  # <space>gg in LazyVim
 
 # Git and tracking
 brew "gh"
