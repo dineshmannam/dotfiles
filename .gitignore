@@ -8,3 +8,6 @@
 # Machine-specific, never committed
 local.zsh
 *.local
+
+# Installed from a repo without a license; restore with npx skills (see .skill-lock.json)
+agents/.agents/skills/kun/
