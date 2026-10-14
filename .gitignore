@@ -11,3 +11,6 @@ local.zsh
 
 # Installed from a repo without a license; restore with npx skills (see .skill-lock.json)
 agents/.agents/skills/kun/
+
+# Private notes, kept on this machine only
+TODO.md
