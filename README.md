@@ -11,7 +11,7 @@ The structure of each package is the same as the structure of `$HOME`.
 | `nvim` | `~/.config/nvim/` | LazyVim with the Python, Terraform, YAML, JSON, Markdown and TypeScript extras. |
 | `aerospace` | `~/.config/aerospace/` | The AeroSpace tiling window manager. |
 | `agents` | `~/.agents/skills/`, `~/.agents/.skill-lock.json` | The agent skills (the `npx skills` store). Claude Code uses them through symbolic links. |
-| `claude` | `~/.claude/CLAUDE.md` | The global Claude Code instructions. This file loads my preferences from the `memory` repository. |
+| `claude` | `~/.claude/CLAUDE.md` | The global Claude Code instructions. This file loads my preferences from a private repository. Change the path in this file to your own preferences file, or do not link this package. |
 
 The `Brewfile` contains only the tools that I selected.
 
@@ -41,22 +41,18 @@ The `Brewfile` contains only the tools that I selected.
 
 7. Install the `kun` skill with `npx skills add kunchenguid/kun`.
    This repository does not contain the `kun` skill because its source has no license.
-8. Set up the personal GitHub account:
-   1. Make an SSH key with `ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal`.
-   2. Add the public key to the `dineshmannam` GitHub account.
-   3. Add a `Host github-personal` entry to `~/.ssh/config`. Set `HostName github.com`, `IdentityFile ~/.ssh/id_ed25519_personal` and `IdentitiesOnly yes`.
-   4. Add `[includeIf "gitdir:~/personal/"] path = ~/.gitconfig-personal` to `~/.gitconfig`.
-   5. Write the personal name and email in `~/.gitconfig-personal`.
-9. Clone the memory repository:
-
-   ```zsh
-   git clone git@github-personal:dineshmannam/memory.git ~/personal/memory
-   ```
-
-10. Open a new terminal.
-11. Start `nvim` one time. LazyVim then installs its plugins.
-12. Give AeroSpace the Accessibility permission in System Settings.
+8. Open a new terminal.
+9. Start `nvim` one time. LazyVim then installs its plugins.
+10. Give AeroSpace the Accessibility permission in System Settings.
     Do this step again after each AeroSpace upgrade.
+
+## Private setup
+
+Only my machines use this section.
+The `claude` package loads `~/personal/memory/preferences.md`.
+This file is in my private memory repository.
+On a new machine, set up access to my personal GitHub account and clone the memory repository to `~/personal/memory`.
+My private notes contain the steps.
 
 ## Files to make by hand
 
