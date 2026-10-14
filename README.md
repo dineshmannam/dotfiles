@@ -1,60 +1,86 @@
 # dotfiles
 
-Personal macOS setup, managed with [GNU Stow](https://www.gnu.org/software/stow/).
-Each top-level folder is a stow package that mirrors `$HOME`.
+This repository contains my macOS setup.
+[GNU Stow](https://www.gnu.org/software/stow/) links the files into the home folder.
+Each top-level folder is one Stow package.
+The structure of each package is the same as the structure of `$HOME`.
 
-| Package | Links into | What |
+| Package | Target | Contents |
 | --- | --- | --- |
-| `zsh` | `~/.zshenv`, `~/.config/zsh/` | zsh (`ZDOTDIR=~/.config/zsh`), topic files in `conf.d/`, Powerlevel10k Lean prompt |
-| `nvim` | `~/.config/nvim/` | LazyVim with Python, Terraform, YAML, JSON, Markdown, TypeScript extras |
-| `aerospace` | `~/.config/aerospace/` | AeroSpace tiling window manager |
-| `agents` | `~/.agents/skills/`, `~/.agents/.skill-lock.json` | Agent skills (the `npx skills` store), shared with Claude Code through symlinks |
-| `claude` | `~/.claude/CLAUDE.md` | Global Claude Code instructions; loads my preferences from the `memory` repo |
+| `zsh` | `~/.zshenv`, `~/.config/zsh/` | The zsh configuration (`ZDOTDIR=~/.config/zsh`). Topic files are in `conf.d/`. The prompt is Powerlevel10k Lean. |
+| `nvim` | `~/.config/nvim/` | LazyVim with the Python, Terraform, YAML, JSON, Markdown and TypeScript extras. |
+| `aerospace` | `~/.config/aerospace/` | The AeroSpace tiling window manager. |
+| `agents` | `~/.agents/skills/`, `~/.agents/.skill-lock.json` | The agent skills (the `npx skills` store). Claude Code uses them through symbolic links. |
+| `claude` | `~/.claude/CLAUDE.md` | The global Claude Code instructions. This file loads my preferences from the `memory` repository. |
 
-`Brewfile` holds hand-picked tools only. `TODO.md` holds parked ideas.
+The `Brewfile` contains only the tools that I selected.
 
 ## Set up a new Mac
 
 1. Install Homebrew from <https://brew.sh>.
-2. Clone this repo to `~/dotfiles`.
+2. Clone this repository to `~/dotfiles`.
 3. Install the tools:
 
    ```zsh
    brew bundle --file ~/dotfiles/Brewfile
    ```
 
-4. Link the packages (move any existing `~/.zshrc`, `~/.config/nvim` and similar out of the way first, or stow refuses):
+4. Move the existing configuration files to a different location, for example `~/.zshrc` and `~/.config/nvim`.
+   If you do not move them, Stow stops and does not link the packages.
+5. Link the packages:
 
    ```zsh
    cd ~/dotfiles && stow zsh nvim aerospace agents claude
    ```
 
-5. Personal GitHub and agent memory: create an SSH key (`ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal`), add it to the dineshmannam GitHub account, add a `Host github-personal` entry (HostName github.com, IdentityFile that key, IdentitiesOnly yes) to `~/.ssh/config`, and add `[includeIf "gitdir:~/personal/"] path = ~/.gitconfig-personal` (personal name and email) to `~/.gitconfig`. Then `git clone git@github-personal:dineshmannam/memory.git ~/personal/memory`.
-
-5. Point Claude Code at the shared skills:
+6. Make the link from Claude Code to the shared skills:
 
    ```zsh
    mkdir -p ~/.claude/skills && for d in ~/.agents/skills/*; do ln -sfn "../../.agents/skills/$(basename "$d")" ~/.claude/skills/; done
    ```
 
-6. Open a new terminal, then run `nvim` once so LazyVim installs its plugins.
-7. AeroSpace: grant Accessibility in System Settings (again after each upgrade).
+7. Install the `kun` skill with `npx skills add kunchenguid/kun`.
+   This repository does not contain the `kun` skill because its source has no license.
+8. Set up the personal GitHub account:
+   1. Make an SSH key with `ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal`.
+   2. Add the public key to the `dineshmannam` GitHub account.
+   3. Add a `Host github-personal` entry to `~/.ssh/config`. Set `HostName github.com`, `IdentityFile ~/.ssh/id_ed25519_personal` and `IdentitiesOnly yes`.
+   4. Add `[includeIf "gitdir:~/personal/"] path = ~/.gitconfig-personal` to `~/.gitconfig`.
+   5. Write the personal name and email in `~/.gitconfig-personal`.
+9. Clone the memory repository:
 
-## Recreate by hand (never committed)
+   ```zsh
+   git clone git@github-personal:dineshmannam/memory.git ~/personal/memory
+   ```
 
-- `~/.config/zsh/local.zsh`: machine-specific and work-only aliases, logins and secrets. Git-ignored on purpose.
-- `~/.gitconfig` and `~/.config/git/ignore`: not tracked yet (see `TODO.md`).
-- A Nerd Font for prompt and file icons, set in the terminal.
-- `~/.claude/skills/synced/`: managed by Claude.ai sync. Never track it.
+10. Open a new terminal.
+11. Start `nvim` one time. LazyVim then installs its plugins.
+12. Give AeroSpace the Accessibility permission in System Settings.
+    Do this step again after each AeroSpace upgrade.
 
-## Day to day
+## Files to make by hand
 
-- New tool adopted: add one line to `Brewfile`.
-- Before installing an agent skill, ask "every session, or just this project?".
-  Global skills load everywhere, including in agent tools that have their own rules for planning, testing and shipping, so keep this package small.
-  A skill for some repos goes in that project's `.claude/skills/`, or in a plugin installed at project or local scope (`/plugin install`).
-  Bundles with opinions on how to plan, test or ship are project-level by default.
-  When unsure, start at project level and promote a skill here only once it has earned it.
-- New global agent skill installed with `npx skills add`: it lands in this repo through the symlink. Run `git status`, commit it, and link it into Claude (step 5, or tick Claude Code in the installer).
-- If `ls -la ~/.agents` shows `.skill-lock.json` without an arrow, a tool replaced the symlink: move the file back into `agents/.agents/` and re-run `stow agents`.
-- Commits here use the personal email (set repo-locally).
+This repository does not contain these files:
+
+- `~/.config/zsh/local.zsh`. This file contains the aliases, logins and secrets for one machine. Git ignores this file.
+- `~/.gitconfig` and `~/.config/git/ignore`.
+- A Nerd Font for the prompt and file icons. Set the font in the terminal.
+- `~/.claude/skills/synced/`. Claude.ai sync controls this folder. Do not add it to this repository.
+
+## Daily tasks
+
+- When you start to use a new tool, add one line for it to the `Brewfile`.
+- Before you install an agent skill, decide if all sessions need it or only one project needs it.
+  - A global skill loads in all sessions. This includes agent tools that have their own rules for plans, tests and releases. Thus, keep the `agents` package small.
+  - Put a skill for only some repositories in the `.claude/skills/` folder of that project. Or, install it as a plugin at project or local scope (`/plugin install`).
+  - A skill bundle with fixed rules for plans, tests or releases is a project skill by default.
+  - If you are not sure, install the skill at project level first. Move it to this package only when all sessions need it.
+- `npx skills add` puts a new global skill in this repository through the symbolic link. Do these steps:
+  1. Run `git status`.
+  2. Commit the new skill.
+  3. Link the skill into Claude Code (step 6 of the setup), or select Claude Code in the installer.
+- Run `ls -la ~/.agents`. If `.skill-lock.json` has no arrow, a tool replaced the symbolic link. Do these steps:
+  1. Move the file back into `agents/.agents/`.
+  2. Run `stow agents` again.
+- Commits in this repository use my GitHub noreply email. This email is set in the local configuration of this repository.
+- Do not put information about my employer or clients in this repository. This repository is public.
