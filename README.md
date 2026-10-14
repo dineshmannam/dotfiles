@@ -9,6 +9,7 @@ Each top-level folder is a stow package that mirrors `$HOME`.
 | `nvim` | `~/.config/nvim/` | LazyVim with Python, Terraform, YAML, JSON, Markdown, TypeScript extras |
 | `aerospace` | `~/.config/aerospace/` | AeroSpace tiling window manager |
 | `agents` | `~/.agents/skills/`, `~/.agents/.skill-lock.json` | Agent skills (the `npx skills` store), shared with Claude Code through symlinks |
+| `claude` | `~/.claude/CLAUDE.md` | Global Claude Code instructions; loads my preferences from the `memory` repo |
 
 `Brewfile` holds hand-picked tools only. `TODO.md` holds parked ideas.
 
@@ -25,8 +26,10 @@ Each top-level folder is a stow package that mirrors `$HOME`.
 4. Link the packages (move any existing `~/.zshrc`, `~/.config/nvim` and similar out of the way first, or stow refuses):
 
    ```zsh
-   cd ~/dotfiles && stow zsh nvim aerospace agents
+   cd ~/dotfiles && stow zsh nvim aerospace agents claude
    ```
+
+5. Personal GitHub and agent memory: create an SSH key (`ssh-keygen -t ed25519 -f ~/.ssh/id_ed25519_personal`), add it to the dineshmannam GitHub account, add a `Host github-personal` entry (HostName github.com, IdentityFile that key, IdentitiesOnly yes) to `~/.ssh/config`, and add `[includeIf "gitdir:~/personal/"] path = ~/.gitconfig-personal` (personal name and email) to `~/.gitconfig`. Then `git clone git@github-personal:dineshmannam/memory.git ~/personal/memory`.
 
 5. Point Claude Code at the shared skills:
 
