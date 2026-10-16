@@ -14,11 +14,13 @@ brew "direnv"
 brew "fzf"
 brew "ripgrep"  # content search; LazyVim <space>/ needs it
 brew "bat"  # syntax-highlighted previews
+brew "eza"  # ls with icons and git status; ll/la/tree aliases need it
 
 # Window management and terminal
 cask "nikitabobko/tap/aerospace"
 brew "felixkratz/formulae/borders"
 cask "wezterm"
+cask "font-hack-nerd-font"  # icons in the prompt and eza
 
 # Editor
 brew "neovim"
