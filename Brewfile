@@ -32,6 +32,7 @@ brew "lazygit"  # <space>gg in LazyVim
 
 # Git and tracking
 brew "gh"
+cask "openusage"  # AI usage tracker for Claude Code, Codex and others
 
 # Cloud
 cask "gcloud-cli"
