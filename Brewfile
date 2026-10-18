@@ -45,4 +45,5 @@ brew "python@3.12"
 brew "uv"
 brew "node"
 brew "fnm"  # per-folder Node versions from .nvmrc
+brew "pyenv"  # per-folder Python versions from .python-version
 brew "sf"

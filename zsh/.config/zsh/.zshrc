@@ -40,3 +40,6 @@ export PATH
 
 # Machine-specific settings that stay out of git (work aliases, etc.).
 [[ -f "$ZDOTDIR/local.zsh" ]] && source "$ZDOTDIR/local.zsh"
+
+# Python version management
+eval "$(pyenv init - zsh)"
