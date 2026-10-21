@@ -10,6 +10,7 @@ The structure of each package is the same as the structure of `$HOME`.
 | `zsh` | `~/.zshenv`, `~/.config/zsh/` | The zsh configuration (`ZDOTDIR=~/.config/zsh`). Topic files are in `conf.d/`. The prompt is Powerlevel10k Lean. |
 | `nvim` | `~/.config/nvim/` | LazyVim with the Python, Terraform, YAML, JSON, Markdown and TypeScript extras. |
 | `aerospace` | `~/.config/aerospace/` | The AeroSpace tiling window manager. |
+| `wezterm` | `~/.config/wezterm/` | The WezTerm terminal. It uses the Rosé Pine Moon colors, Hack Nerd Font and a transparent background. A window that does not have focus fades. |
 | `agents` | `~/.agents/skills/`, `~/.agents/.skill-lock.json` | The agent skills (the `npx skills` store). Claude Code uses them through symbolic links. |
 | `claude` | `~/.claude/CLAUDE.md` | The global Claude Code instructions. This file loads my preferences from a private repository. Change the path in this file to your own preferences file, or do not link this package. |
 
@@ -30,7 +31,7 @@ The `Brewfile` contains only the tools that I selected.
 5. Link the packages:
 
    ```zsh
-   cd ~/dotfiles && stow zsh nvim aerospace agents claude
+   cd ~/dotfiles && stow zsh nvim aerospace wezterm agents claude
    ```
 
 6. Make the link from Claude Code to the shared skills:
