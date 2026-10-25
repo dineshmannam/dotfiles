@@ -5,6 +5,7 @@ tap "nikitabobko/tap"
 tap "felixkratz/formulae"
 tap "hashicorp/tap"
 tap "adamrodger/tap"
+tap "stripe/stripe-cli"
 
 # Shell and dotfiles
 brew "stow"
@@ -47,3 +48,9 @@ brew "node"
 brew "fnm"  # per-folder Node versions from .nvmrc
 brew "pyenv"  # per-folder Python versions from .python-version
 brew "sf"
+
+# Testing and payments
+brew "toxiproxy"  # simulate network faults for resilience tests
+brew "k6"  # load tests from JavaScript scripts
+brew "httpie"  # readable HTTP requests from the terminal
+brew "stripe/stripe-cli/stripe"  # Stripe API, webhooks and events from the terminal
