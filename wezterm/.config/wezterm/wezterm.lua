@@ -10,6 +10,9 @@ config.macos_window_background_blur = 50
 config.window_decorations = "RESIZE"
 config.hide_tab_bar_if_only_one_tab = true
 
+-- Send each key press as one event, so herdr reads ctrl+alt chords as one key.
+config.enable_kitty_keyboard = true
+
 -- Fade a window that does not have focus.
 local faded_opacity = 0.62
 local faded_text = { hue = 1.0, saturation = 0.25, brightness = 0.45 }
