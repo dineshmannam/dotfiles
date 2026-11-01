@@ -25,6 +25,7 @@ cask "nikitabobko/tap/aerospace"
 brew "felixkratz/formulae/borders"
 cask "wezterm"
 cask "font-hack-nerd-font"  # icons in the prompt and eza
+brew "herdr"  # terminal multiplexer for agents; herdr/ package configures it
 
 # Editor
 brew "neovim"

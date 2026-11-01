@@ -1,0 +1,9 @@
+onboarding = false
+
+[keys]
+split_vertical = "prefix+|"
+focus_pane_left = "ctrl+alt+h"
+focus_pane_right = "ctrl+alt+l"
+
+previous_workspace = "ctrl+alt+k"
+next_workspace = "ctrl+alt+j"
