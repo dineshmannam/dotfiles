@@ -42,6 +42,10 @@ brew "adamrodger/tap/gctx"
 brew "hashicorp/tap/terraform"
 cask "docker-desktop"
 
+# Kubernetes
+brew "kubectx"  # kubectx and kubens: switch cluster and namespace (fzf picker)
+brew "k9s"  # terminal UI for clusters
+
 # Languages and platforms
 brew "python@3.12"
 brew "uv"
